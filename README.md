@@ -1,170 +1,117 @@
-## Technical Evaluation: .NET Core vs. Go for Enterprise REST APIs in the UAE
+# Technical Evaluation: .NET Core vs. Go for Enterprise REST APIs in the UAE
 
 ## Summary
-## For REST APIs in enterprise UAE settings, .NET Core is the optimal choice due to its mature ecosystem, strong developer availability, competitive performance, and suitability for complex business requirements. Go remains a strong contender in cloud-native microservices but presents higher hiring and on boarding challenges locally
 
+For REST APIs in enterprise UAE settings, .NET Core is the optimal choice due to its mature ecosystem, strong developer availability, competitive performance, and suitability for complex business requirements. Go remains a strong contender in cloud-native microservices but presents higher hiring and onboarding challenges locally.
 
-| Criteria | .NET (C#) | Go (Golang) |
-| --- | --- | --- |
-| Performance | High throughput with improved latency in .NET 8 | Slightly better latency and startup times |
-| Scalability | Robust for enterprise applications | Good for high-concurrency scenarios |
-| Developer Pool (UAE) | **Large and mature community** | **Smaller, but growing and specialized** |
-| Maintainability | Rich powerful tools, potential complexity | Simple and readable code |
-| Ecosystem | Extensive and feature-rich | Focused on cloud-native solutions |
+| Criteria                 | .NET (C#)                                       | Go (Golang)                               |
+| ------------------------ | ----------------------------------------------- | ----------------------------------------- |
+| **Performance**          | High throughput with improved latency in .NET 8 | Slightly better latency and startup times |
+| **Scalability**          | Robust for enterprise applications              | Good for high-concurrency scenarios       |
+| **Developer Pool (UAE)** | Large and mature community                      | Smaller, but growing and specialized      |
+| **Maintainability**      | Rich powerful tools, potential complexity       | Simple and readable code                  |
+| **Ecosystem**            | Extensive and feature-rich                      | Focused on cloud-native solutions         |
 
 ## Performance
 
-- Under load, Go and .NET Core both deliver high throughput, but their resource profiles differ. In raw speed tests, modern ASP.NET Core (using Kestrel and AOT) can handle extremely high request rates.
-- For example[, industry blogs](https://roshancloudarchitect.me/benchmarking-giants-asp-net-core-8-vs-node-js-vs-go-a-performance-analysis-964808bc6013) note ASP.NET Core achieving millions of requests/sec in simple micro-benchmarks. ASP.NET Core 8 achieves unmatched throughput due to its optimized threading model, high-performance Kestrel server, and task-based asynchronous handling.
-- In summary, .NET Core is “fast and efficient” with continued improvements, but Go’s simplicity yields a smaller runtime footprint under load.
+* Under load, Go and .NET Core both deliver high throughput, but their resource profiles differ. In raw speed tests, modern ASP.NET Core (using Kestrel and AOT) can handle extremely high request rates.
+* For example, industry blogs note ASP.NET Core achieving millions of requests/sec in simple micro-benchmarks. ASP.NET Core 8 achieves unmatched throughput due to its optimized threading model, high-performance Kestrel server, and task-based asynchronous handling.
+* In summary, .NET Core is "fast and efficient" with continued improvements, but Go’s simplicity yields a smaller runtime footprint under load.
 
 ## Scalability
 
-- .NET: Offers robust scalability through asynchronous programming patterns (async/await) and is well-suited for enterprise-level applications requiring complex workflows.
-- Go: Features like go routines and channels provide efficient concurrency, making it ideal for handling numerous simultaneous connections, such as in microservices architectures. ([keralait.dev](https://keralait.dev/blogs/119/choosing-between-golang-and-net-for-building-rest-apis?utm_source=chatgpt.com))
-- Both platforms scale horizontally on AWS. Containerized microservices: Both .NET (in Linux containers) and Go can be deployed via AWS ECS, EKS (Kubernetes) or Fargate. AWS provides official container images and support for both runtimes. .NET Core’s Kestrel web server and middleware pipeline scale well; AWS notes .NET’s modular design (dependency injection, async I/O) makes it “ideal for scalable, cloud-native solutions
+* **.NET**: Offers robust scalability through asynchronous programming patterns (async/await) and is well-suited for enterprise-level applications requiring complex workflows.
+* **Go**: Features like goroutines and channels provide efficient concurrency, making it ideal for handling numerous simultaneous connections, such as in microservices architectures (keralait.dev).
+* Both platforms scale horizontally on AWS. Containerized microservices: Both .NET (in Linux containers) and Go can be deployed via AWS ECS, EKS (Kubernetes), or Fargate. AWS provides official container images and support for both runtimes.
+* .NET Core’s Kestrel web server and middleware pipeline scale well; AWS notes .NET’s modular design (dependency injection, async I/O) makes it "ideal for scalable, cloud-native solutions."
 
 ## Developer Availability
 
-- Go: While Go's popularity is growing, the developer pool is still smaller compared to .NET. However, its simplicity allows for quicker on boarding.
-- .NET: Boasts a large and mature developer community, ensuring easier hiring and support.
-- Survey and industry data show a larger existing pool of C#/.NET developers, but Go’s popularity is rapidly growing. In the 2024 [Stack Overflow Survey](https://survey.stackoverflow.co/2024/technology#:~:text=match%20at%20L76%20Professional%20Developers,C%202.3%25Perl) - C# was used by ~28.8% of professional developers vs ~14.4% for Go, indicating roughly twice as many developers have .NET experience.
+* **Go**: While Go's popularity is growing, the developer pool is still smaller compared to .NET. However, its simplicity allows for quicker onboarding.
+* **.NET**: Boasts a large and mature developer community, ensuring easier hiring and support.
+* Survey and industry data show a larger existing pool of C#/.NET developers. In the 2024 Stack Overflow Survey:
 
-Metric
+  * C# was used by \~28.8% of professional developers.
+  * Go was used by \~14.4%.
 
-.NET Developers
+| Metric               | .NET Developers                                  | GoLang Developers                                 |
+| -------------------- | ------------------------------------------------ | ------------------------------------------------- |
+| Job Openings (UAE)   | Over 140 positions listed on Indeed, 81 in Dubai | 9 positions in Dubai listed on Glassdoor          |
+| Available Developers | High availability across major cities            | Limited; \~25 developers in the UAE (Golang Cafe) |
+| Common Industries    | Finance, real estate, government, enterprise IT  | Fintech, cloud infrastructure, startups           |
+| Typical Experience   | Mid to senior (3–8 years), enterprise background | Senior, cloud-native/microservices expertise      |
+| Hiring Difficulty    | Moderate; large talent pool                      | High; niche skillset and limited supply           |
 
-GoLang Developers
+## Job Market
 
-Job Openings (UAE)
+* .NET is widely used in enterprise, finance, and government sectors.
+* Go is popular in startups, cloud infrastructure, and DevOps roles.
 
-Over 140 positions listed on Indeed, with 81 in Dubai alone ([Indeed](https://ae.indeed.com/q-net-developer-jobs.html), [Glassdoor](https://www.glassdoor.com/Job/dubai-net-developer-jobs-SRCH_IL.0,5_IC2204498_KO6,19.htm))
+## Learning Curve
 
-9 positions in Dubai listed on Glassdoor ([Glassdoor](https://www.glassdoor.com/Job/dubai-golang-developer-jobs-SRCH_IL.0,5_IC2204498_KO6,22.htm"%20\t%20"_new))
+* **.NET**: Steep – due to features like LINQ, async/await, and generics.
+* **Go**: Gentle – simple syntax, minimalism, consistent tooling (`go fmt`, `go test`).
 
-Available Developers
+## Best Fit
 
-High availability; numerous candidates across major cities
+* **.NET**: Teams with enterprise experience and complex business requirements.
+* **Go**: Teams valuing minimalism, fast deployment, and simple business needs.
 
-Limited availability; 25 developers listed in the UAE ([Golang Cafe](https://golang.cafe/Golang-Developers-In-United%20Arab%20Emirates"%20\t%20"_new))
+## Market Demand and Compensation
 
-Common Industries
+| Metric         | .NET                 | GoLang                |
+| -------------- | -------------------- | --------------------- |
+| Average Salary | \$99,270             | \$134,659             |
+| Hourly Rate    | \$53.73              | \$64.74               |
+| Salary Range   | \$83,144 – \$141,758 | \$115,003 – \$165,000 |
+| Senior Salary  | Up to \$143,185      | Up to \$200,000       |
 
-Finance, real estate, government, enterprise IT
+### Hiring Landscape
 
-Fintech, cloud infrastructure, startups ([Sortlist](https://www.sortlist.com/s/golang-development/dubai-ae"%20\t%20"_new))
-
-Typical Experience Level
-
-Mid to senior (3–8 years), often with full-stack or enterprise backgrounds
-
-Senior-level, often with cloud-native and microservices expertise ([Golang Cafe](https://golang.cafe/Golang-Developers-In-United%20Arab%20Emirates"%20\t%20"_new))
-
-Hiring Difficulty
-
-Moderate; large talent pool but competitive for senior roles
-
-High; niche skill set with limited local supply ([Sortlist](https://www.sortlist.com/s/golang-development/dubai-ae"%20\t%20"_new))
-
-**Job Market**
-
-Widely used in enterprise, finance, and government sectors
-
-Popular in startups, cloud infrastructure, and DevOps roles
-
-Learning Curve
-
-Steep – due to advanced features like LINQ, async/await, and generics
-
-Gentle – simpler syntax, minimalism, consistent tooling (e.g., go fmt, go test)
-
-Best Fit For
-
-Teams with enterprise experience and complex business requirements
-
-Teams valuing minimalism, fast deployment, and simple business requirements
-
-Demand & Market
-
-High demand, especially in enterprise apps
-
-High demand in cloud, devops, microservices
-
-Average Annual Salary
-
-$99,270
-
-$134,659
-
-Hourly Rate
-
-$53.73
-
-$64.74
-
-Typical Salary Range
-
-$83,144 – $141,758
-
-$115,003 – $165,000
-
-Senior-Level Salary
-
-Up to $143,185
-
-Up to $200,000
-
-Hiring Landscape
-
-More readily available talent, potentially leading to more competitive hiring for employers.
-
-More niche talent, which might require more targeted recruitment efforts and potentially higher compensation for experienced individuals.
-
-References:
-
-.NET Salaries – [Indeed](https://www.indeed.com/career/.net-developer/salaries)
-
-.NET Salaries – [Zip Recruiter](https://www.ziprecruiter.com/Salaries/Dot-Net-Developer-Salary)
-
-Golang Salaries – [Talent.com](Talent.com)
-
-Golang Salary Insights – [Golang Cafe](https://golang.cafe/Golang-Developer-Salary-Outlook)
-
-In summary, .NET developers are more readily available in the UAE, making hiring relatively straightforward, especially for mid-level positions. In contrast, GoLang developers are fewer in number, leading to a more competitive hiring landscape for this niche skill set.
+* **.NET**: More readily available talent, leading to more competitive hiring for employers.
+* **Go**: Niche talent pool, requiring targeted recruitment and potentially higher compensation.
 
 ## Final Recommendation
 
-Considering enterprise's context in the UAE, the following factors suggest that .NET 8 with ASP.NET Core would be a strategic choice:
+Considering the enterprise context in the UAE, .NET 8 with ASP.NET Core is a strategic choice:
 
-- **Talent Availability**: The abundant local .NET developer pool ensures easier hiring and team scalability.
-- **Ecosystem Maturity**: .NET's comprehensive ecosystem supports enterprise-grade applications with robust tooling and integrations.
-- **Performance**: With recent enhancements, .NET 8 offers competitive performance suitable for high-throughput REST APIs.
-- **Maintainability**: Established frameworks and tools facilitate long-term maintainability and scalability.
-- Use Dapper or Entity Framework Core for DB access, deploy via AWS ECS or Lambda, and standardize on Swagger/OpenAPI.
-- .NET's mature ecosystem will lower total cost of ownership.
+* **Talent Availability**: Easier hiring and team scalability with a large local developer pool.
+* **Ecosystem Maturity**: Robust tooling and integrations support enterprise-grade applications.
+* **Performance**: .NET 8 delivers competitive throughput suitable for high-performance REST APIs.
+* **Maintainability**: Established frameworks aid in long-term support and scaling.
+* Suggested stack: Dapper or EF Core for DB access, deploy via AWS ECS or Lambda, use Swagger/OpenAPI for API standardization.
+* .NET's mature ecosystem lowers total cost of ownership.
 
 ## Additional References
 
-- [_Comparing HTTP Performance: A Local Benchmark Study of .NET 9, Go, And Deno_](https://www.linkedin.com/pulse/comparing-http-performance-local-benchmark-study-ofnet-imran-younas-qnvqf/)
-- _"After running multiple iterations of the tests, .NET 9 implementations (both AOT and JIT) outperformed Go and Deno in terms of HTTP throughput.”_
-- [_Benchmarking Giants: ASP.NET Core 8 vs. Node.js vs. Go-A Performance Analysis_](https://roshancloudarchitect.me/benchmarking-giants-asp-net-core-8-vs-node-js-vs-go-a-performance-analysis-964808bc6013)
-- _![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA1YAAACbCAIAAADuoJ3LAAAAAXNSR0IArs4c6QAAV81JREFUeF7t3QeYJVXVBmqCgD+KGSXnnCXnLDlLEAMSVJKSBDEhWSQjJkAQMYAKCKIiiBIlo+SMRAVBUQzIDyjcd/j+W/fcMz0zfWZO9/Tps2qe50x11a4dvlp7r2+vtfauKV999dUp6igECoFCoBAoBAqBQqAQ6CcEpuqnxlZbC4FCoBAoBAqBQqAQKATGIFAUsOSgECgECoFCoBAoBAqBvkOgKGDfvfJqcCFQCBQChUAhUAgUAkUBSwYKgUKgECgECoFCoBDoOwSKAvbdK68GFwKFQCFQCBQChUAhUBSwZKAQKAQKgUKgECgECoG+Q6AoYN+98mpwIVAIFAKFQCFQCBQCRQFLBgqBQqAQKAQKgUKgEOg7BIoC9t0rrwYXAoVAIVAIFAKFQCFQFLBkoBAoBAqBQqAQKAQKgb5DoChg373yanAhUAgUAoVAIVAIFAJTTvAbwfPNNx+YJGuO8aA25WtHwVoIFAKFQCFQCBQCPYrAww8/3KM1r2p3hEBZATuCqxIXAoVAIVAIFAKFQCEwGhAoCjga3mK1oRAoBAqBQqAQKAQKgY4QGJQjOM7i/P73v//1G29vXMOtnt9yBHeEfiXuLQTSBQj5BMMneqtdVdtCoBDoHwTaVHYa3uj0/FmO4D6RhwkrM7GAoXoQmWqqqV5++eXQvijCV155xYnrfYJXNbOfEWh6AbFvm/z0MyzV9kKgEOghBKK7HRR3mF+UeOvM9ve//30PtaiqOtEITJgCzjvvvBEXai+y4uR1r3vdG97whmmmmcZJ8b+JRr8e7C0EmpkPmQ8L7K36V20LgUKgEICA4Ys154UXXnjxxRd59gxoDR0MPkUB+0ROJkwB55lnntblwM7f/OY3zzjjjK9//eszjWhshH0CWTWzbxHIXHnaaac1gP7v//5vTX76VhKq4YVA7yLQOO5eeumlv/zlL88++2xUeSsLLArYu++3o5oPigLG/ucgKJjf7LPPzvj373//2wSisQ52VGolLgR6FAGj5Jve9Kb//Oc///jHP/SCHm1FVbsQKAT6FoG4L0xlZ5hhBidPPfXU3/72N6NZa4xgUcA+EY8OKGAmCnPOOecb3/jGv/71rw0vbEOq9gXsE9Hpw2aSeV3gLW95C9cJClii3ocyUE0uBHodgcatZwTj0zOsPf7446a1RQF7/c1ORP07W8bBBDj99NNTflkXXEchUAgUAoVAIVAI9BACiWlOHIuAFmpdZL/QwHGZdXqoaVXVThHogAISmqmnntqvAIJmUXAZQjpFvNIXAoVAIVAIFAKTEYGwwGhz1ZhuuukodyeNgXAy1q2KHk4EOqCAzY4Ytf5jON9QlVUIFAKFQCFQCHQdgVhw+PTK/td1bHslww4oYJqULYVajX/NfCInvdLyqmchUAh0BYGyHHQFxsqkEBh+BFpZICLYHMNfkypxsiDQMQWcLLWsQguBQmAkI1BbJI7kt1N1KwQKgUJgQAQmngI2xr/WfHt9v9yyYlY/GU0IDI88D35nKOODhYeT0es0dhDL8EA0moSq2lIIFAKjBoHOKGCWEWXQHND7k8H9n//8p3VGdh6325DtY/7+9787b/0czdjwNR8gGSSJVAf7GOXbJG07V4/nz8bK3SxnaVMJ4bW2PFRtux6qZ3aAGzXvuxoyDAgQIcLz/PPPEyTCn+O5557zp0P8tVv6iBCcQRrP2mIt2v5Ml2yjMqFlQrwJsNKffvpp5bZt/TVgN2ztI+nmlgo6ZNUWAZKumoIcmvbkk09quBKV9a9//StN9mwKasYNFZZb29cI/Jnu3DrCtFambcDJWOSRrFFr7cjJP9cbutns492kdDfVULfs9W28gpXKt3rE2t7RuMJdcj3fWpCV7Xazc0J9P2kYelwVMSkINONJM5LUvGhS8OytZzvbF9CmuL4XZydJw2IWELUdhk4DKEmafbbZX/7Py859RC4qgdrLqD2g2vuf//kfaaI/PDJ+ECkVaSxi8pvxOnna63JcD7aN6aphGbxnsx6qdY9fSusDH/jA29/+9m9961uekqdaVZfoLbEeotoOZl9A0qKbmPMQKjtopqeEP7mC+ekI2223HfE788wzSfuA/aipf/hKK+0YWxRbCVDDb/SOsC5cZMstt1x55ZU/9alP2f1Bl2lIT9MTQw3VXHdoWxvY8CS0RvPV35V8GaiZgyE6Ds8edNBBjz76qI5j91ANlB4OoVbKtZ9UQ0xDzsIvPQsE5apYItNTsdaBorXVYyMwLiad0SaszgijFNVwpBqKiM7zZ0atD37wg5jrhRdemJGqTYpauWPDaJt6JkMvVLJ3v/vdG264IRz++Mc/2n13XNUbIimtbAuBjhB461vf+swzz/z5z39unZU9/PDDHWVSiXsUgS5TwIyqBtlLLrkEeWqG0d/97ndHH330gw8+GOUxNlgG6Iz+gzSNGKOjtyiYjMLRtePhas2txhoRZdPYJORDC1KZ3/3udxdeeOGtttrKPJ5mivmkR19wVbuLCAyGAiI9IXwo1/ve977/E85XXp1iyjGE7NJLL/3qV7+61157+cTObrvthgCNS7RCU1p/G7bR9KDmJB0tdC3i7Td7vfoA1Ne+9rU111xztdVW0zH1rySIva150JVmmhTE8mcsbY6ww80331wDL7roIpmjdBI4kaffLbbY4sADD8Sirr/++lNOOWWTTTZJJir5wAMPHHfccTfffDNeKMP4gqNvkqCpeWt9mmo0jK15lW28uY2cJZk8DUHY58wzz+xdIHbXXHON8ScVSJqwTwdqO9988x1yyCFe0Pe///3wxWZgGXDIasaT1rswMYf0+I9+9KObbrrpC1/4QqYBjSm0i9JYWRUCXUGgKGBXYOzRTKY26o2/6l/+8pebMY4OeNvb3maiHBUy9oNUhTk3WvahD30I4WMVuPzyy6+44oprr73WB2fyUWpDpCHYOYIV00Kcra5kJu3EiJmvz8V8mJ0IXYwrzcjuQdfVpDEYZLdqv43vqTFCRNMY5eUcoikrOcTi6Fzp7iZnadZdd12q4oILLpB/3DrGdE/FYFAWwR6V9Umvdt5+pjFj24YjiiRKGmJjVn3jjTf+6le/IlTmFV8++cu/+MUvbrnllieeeGLttdcmUWYakUaSTAKJX2xpkVJ/uu7clXSHMBLpY6gLq4ihOp1Imkh1elmmN64wAS622GKIoL6p3HSHdIF8Kl5iv7FgeTb8rOl0uSgx6+ZHP/pRxf3mN7+RPgwyXFNNkDxUD8GFz3LLLecbKl/60pdYwlxcZJFFllpqKSaxfHUqrY6JzrP54J4iVCYucmU5YJJBwHn8AyG4YbGuS5wH423I+3VFelc0yp8ymXXWWT/xiU/84Q9/+OlPfxrbpFtBLCxZtq6o86qrrvqzn/3MC1IHOcgnMMrHyBasPBhkGo6oiLwjd71ozYezSq6xxhp33HHHI488kvltI341gEx6T6wcuogA+UzUCslshHPvvffuYhGV1YhFoMsUsOFJO+2001133XXsscc+9thj999/v3HQGE1/7LDDDnPMMcd+++0391xz33PPPeussw6auOOOO8Zecvfdd1Mwn/vc59Zbb725557brdVXX93YuuKKK372s5/deuutDdmimigPydw1yebkmm222W6//XZ60ZUllliCsQFPPeCAAyhadRCQdNhhh7FJ/PznPzfdUbSstt9+e0qRVlA9XhtGAlpKVpjrDTfcQBnwZJ199tma85nPfIZt47rrrlMuNVAUcMSK8jBUbPwUsLUC+AHz229/+1vhccsuu+x/X/kvwnfrrbdyuJBnXkIJyPDBBx+sR5ArAsxjSGjXX3/9mWaa6dOf/jTZQ5iY1g499NCPfexjHjEhIbFKOemkk8j2ZZddhmYtuOCCX/ziF43gDO26zO677+5Z3YfxSR/Efsy+ZOLW7bfdfvzxx7///e9/5zvfedttt6mGfifmQXGskkjSjDPOaNqGvqiSPqgjOKcSsDoETlfSEZZeemldQ4uQJFQp80DJVGPjjTeO6UvRyy+//Byzz/H1r39dJnfeeaePUKnSfffdBwHd/5Of/OQ+++yjaGxJ9ULm3vve9x555JF+JX7Pe96jvcYHlkvNwbHgJjZDAr3VlFKhCyywwMknn7zzzjuDAsGClRYZCiCw7777brPNNuppPDEgHHXUUaCGwKabbqo4hRoBVMCYI81DDz0UwqdQfzJwKg7gXo0amg2Ke/ESlTjXXHOBRX0223Qzf2pOCDfL6OGHH553ZJRAeTNj5Eb405/+5L20uT6KAg5DV60iBo9AUcDBYzX6Una2HGSC7W88LFJScu9617t4YQz6tI5bRG2FFVYwqlpscdfddy2++OKCoii2s846yzcKP7nfJ43X5iKG2uWWXc5T9KLQQ+P1KqusQpsaVffcc080zlSbXsQLzz33XJYVesKgbxA3WBvEGRUoMyeLLrqoc3RQQYZ1hRrWN9hgA4ZJdHCZZZah0maZZRbZUifGcU9RjRRSrIwy/MhHPrLWWmuxZGQcj2tsgiBUgkIAAqSIdBFXkx/CQw6RGL96gb5AsBnnMBKSuf/++2M2OgLGRt5wmnvuvueJx59AB/lVsYrzzjtPvzB7IdJYxUILLYRysTk5xyeIumxNgcyRNt5o48ceHTPpQrlWWmklHVA1ECxc7UM7fIgn1GRss80222ijjVxUH52IsQprQWgwRaxFzZEwNdcFUCu15bNWhPQ4Gb+qroqE+Y1JMgZLEyoGNpm/4x3viGv4ddO8DqlVhEYBweOeVU/TLQzyJz/5iW6owrvuuiteq7aolRaZv6mSP/VclM6D+iaKHCuprPTl5IPOKoXTVq/HZRnwVAbz06/PP//8H//4xyDCyYwVQFY3sU1XX321Rm393q2XWXoZbJXBT2JoZMUGjihnsYxAwCxxQXZNUBhz/KpJBp8zzjjj9jtuR1WNJCps3ODQx4bNGHmBv/GNb2id3EwAmCdV3nsZ0I9cfaQQKAQKgcmOQJcpYNoTDxRb2g9+8ANjtMAgVC9uF5rgO9/5DmplhGUeOOaYYzA8NM7ASplRJIiXkZ2CMcTTFr/+9a8N/Swoxl+eWeOpcdbAikpy63zve98z1gvf8SADADVG59FYc805VxxbhnV/0sGUKOVhou8pJXJRfeUrX6HnWDVoBRVmrqCJmRnM+NWEPqZ9HUIYlU6TJYooUfZ1FAITRKBhSKFEWe0Uf+50007n5IQTTjAJOeTgQ1whnMzVUhI/Vr299t7r4UceRmuQPH3kiCOOILESIIUeZHUjn6ZYZLIJbDXXMoO6+pqrP/2ZTzNxmbfwRCemQv4qQOCZyUm4B5FIz7qLqeh6JJ9ljtua9S4mgayyIvAezJIOXOqHP/whIoUI6tRYZkIeHSiU3qeXcfXqnmMaON10+J9erybaiNdeddVVZnHoHWaGLaGAp556KqMjsqUJ2qW2JnLsoHqc84whKq+lieqLhzo+aywNLePaFuGna6uwYEe8UNEQYxE0VmgsqsoQaNnN/77wv1rHHKhd88w7z7+e/xeuec455+yx+x4XXnCh1hkKmFT5bXFNPE/TDCa89hwX5o3ajtipuZFKzmaevAfoI2bMTcFCKY3xyhjFNAsBoKmtOSciq/JZc1ZHIVAIFAIjDYEuU8DEBsVfZnZunn3xxRejaOx50YiGS2M0UwENYZyl+YyeBn0z6SmnGrPCIxrrxZfGxPfk29XGX2O0ATok0thK2yloySWXjHY0NNM9VBdzggTCuueeZ+47br+DlkIBaTXZGtDZXZSId8Y8aYA2WDNPKk7F6ELPqljWf7BE7rTjTpSN2HZXYu2QT6uZc6S9y6rPSEMgNuMEjcWEnDg2oq4joHScsOEH8RUiOpyShJlYElGchlgiPc6zwQrJTyBgFnYkqC5hsp7FiiTzJ3s2g5yO06w10V/wrXnmmSc9SCaelcnTf3paP5VeDmxgcsiaWbnlWembFSH6o3q6hdlkea+mSJbZUeigbDNTUkmzL8uqkCeGTHxLQeovMeMcJqrXy5DVTafTXg9KJoGO6WIzjCgueWZu6Vf19Gu/ZmhGAHZElQSUZHorPNFZ/JIbVz0lG7MgY4pXnUNbbigjZPBsDu73bf++t7z1LfEgY36MeaqN57FQigAxWR0TsjL33BDzLtSW5Q+P/PjHP274ksnb3zZmZmi+aoDitUDfRVDxJGRrAqNHBDLvqLEFtp6PNImt+hQChUBfIdBlCpgNF2KZMDIaLg30J554oqHZsDjmusH4tRhwk3vOFIMpu4Kh1rA7hvm9ZiNpRv9sYBGd1MSeo3qUhGScs2IN2TZOP/1083I6j/HAKMz/ZdR+8KEHJTCyC2Ny0SOJyMbtsqaESjA0Z2lLwsxzuBjzxve+/z3nGGqsEc3RV/JRjR08Ak0wdXOSaU8YAKEKjyH8YQOu4E+vvDqGJkY4szohyzti7sLJ0Cm8kNhjG05imfNn1h8Q42RFkpESZBGVkYl50ZiTKcbIcx6JGKesdFLH9G+YHkOSrZqgNVmqFXubK3pNjHz+lLgx+2U3pRA+GWYJizQq44pSZMJUyczJsHfllVeqCTu6BHEuM87ptg5uUzZI1JPtTSka6ynVwAhDl+UcY2esng4GP7ckUwqHr0xEHMoEaVN5sYYGHA5cBjyWRfF5wMzUUQ6aqc5MfYKDGe2ELYpFFviIgxoWQIqXQ8NM0sCCI/JUjIn/++znzCpNXOWgLak2y6JgkqefeRrCautZmQOfh11uwdnFhiUPXooqZSFQCBQCw4ZAlylg7GRZFGlANyYaH9kY6IYYFUQIZVGFNO4a03lqKABzaA9mb7BYFOQQXWLE9ytldmrwK4KbSWP++edPWBX/l0N6usTwzUFDizAkMD1SPG4Z6+Upnt0VgVaiwhOSiDW6aHIfZRwiqJLxOtErHF6UhABzt6IFx7P14LC9syqoVxAgM+S8bduXcK8IEun9v37xWu8g/2FaLprPsFhzUIo2E65nrRImhNnIkPwTbNd5P8mnB2NfJ+fzzD0P3mNmhQCNYYdTjmGH2UFTnpmhhYwiWEpndWOTQ1xE0bHYcfJiadkXnbNVlO22226LwCW9W2gQPsRDzSrWWP7kqXQJXNRnYy9PGzE2y4eZDAUaZn0GF6pC09FEQArqkF6QIu714Q9/WK+0cov5UALVYxdE7ARNciXLIS5arUAi5WzQiK+AodFkTw66tsdVkt+ZXdAQFNrtEWnkM/VUU5t5KkXOXMN+TUo9qG4MqHgeJK1rsWhGztwXY+yRU02pCM5lbWRHVDHDS5bF4Nx333O32gpqFKbpKU4JI55ntd07UpNEtvSKxFY9C4FCoK8Q6DIFjM3DMG1sRcjC9mIFcc5UYBiN58tIauJuRs6Pg2Mhc/xEFI+hM6FOURISm17TK4Zyd7N9pRPxhRTb5z//eWFM1EPsgpLRMYZ+rrRYBJ3LiuKULV3CQqBWYgHpSMO6UEI2SBmqFRrqccUpl3aJPYD3innS+I5HZhxvvDl9JSXV2IlAoPH3xerc5EAUCRvCQfDSNTAJMh9LHvkMeSLkKAjzuUmLCDnxDP4MnRKTx9u4xx57sGDpHUgVuZUbWf3BD3/w8ktjNk5HqvSC9DulIzf6Cwl3i2wrThEe0XEkwF0c8hG5oXSZK0i3Ek5nBYbFIkmvSpZWyAGLQt1Sz1AiUyl1QCKl0bP0Ow2JJUw8hohe5EnkBvIqEBAFZB3UDcWBSIk4SsDAxs2aHRM5EGSrIEW7jl25zrSvhnCTJ/am80pvBIADopzlF1qqFInxYE2TBqrgtU0pJ7heP/Xrpn7m6WeEJIpQFIaIZf7kop94HXibumUFtPToncRqiO+yNXIQA5MHWQMtCjZeaX7eqdhimODQMhQXaJWJ2SlIVcmvths3GidDZCBzgImQqHqkECgECoHuItD9raETLWcNr4GVYggLzJzesGhezvZG1YXJseQZbakx1I31zpzbKG8difTYIQVpCI7ZL/t7mfd7nHahzMT2cdMYYRMAnjBElhIXJXZFuZQHBcP454p88EJ+YcO3nA3rFEysldQDhYEO0jpyNtA7yQYZrAsycUvF4qFrM+p0931UbiMZgThVhaWSOhI1oCJvJgnuxptJIIklESLwMY8Re/kwuekIbHWoAxE1YyGcZAxviPGbKJJe4mo2Qj6JK9oRsxY+pC/oCKRURzDjQlzYtlmedDp9hNHL7AhBsdze4g+si2FMBUi7/Y88qDg8SU1s/ClPuamhDhhDvq6adVTooBMXnfjN94E0QRF6hwSZeqntaaedZpnLllttKQ0Dv1brwgyHCBDfKFcA6qme8MkiLSf6lG6Im5ocSqOlspIGH2XwEy+I2On1uqfOe++992qdqjKOhn1qiGwVATHNyVoxRbuoqnikw4k8NSeczGzQG9EEfzox7fQW4IPs/vpXvz7v/PMyZVVQnAxGDGHEeXEaoia4rNrKGSmMVZU8GKbwYKjyRLuiRAtN1lxrTbtWeUE4cashsPjfSO7jfVi32hq6D1960+TuU8DWYOcMdhlVE73uyhhP8Gu7MBhYm5ExgT6OJn1UaeKNQu8SRCVNNozIplzRyoled8uVBOI0Xqo0NX+mApmIJ8/cjTHGEf2aqmbxbzRxaF9m86lkHX2IwGAoYCssEdrE3sX96krkMPa5yGoOMuzPNgGLuzaCmhiJnCdqNhfxyzAtPlAWa6wFOUOnnIhaMxdqog8j9sqNrc5yV7MdTMsELMuzkiC9NT0ivTV1TsfJ9TQn/UX+TIC8q7bHswSYARIrSrJYvGJfT9FNVk1kRUhn09eQVBY1jRKQhwLmuuIyIKTJTeKmzq2VCarSJ7Ak1QZRhgh/ZhMAR6Z8XMwf2eUj3zjlG4yRyb+BN+8lsEOgFfYmt6yeTomqrQg2RR5h1kFrlrFSV4oC9uFw0StNLgrYK29qKOrZfQrYVkvDYohagngaZpYhOONmM7JHAzVMzlPGX09lQ40sMzQFb8hZFFVG7eikttz8Gd90o5CSIImj6qI8omtbCWV0VXOxUcM1iR8KQeyJPDulgI005iSSQ6jSEYh0ombTCwh5s59IMxdqYGnoVGtWkfxQunQxq0CYr+TDIsUcyFKVchvpzUQrAQ+saOyLtkdhXGztUxKk38m26aRNRwsfylwrNCj9SHoBiIJxOa9N0pI+3KipQK7kYthb05z8GVc1u7tz9rlEFkoT7tiGZwNpq/A0ZSV9k39yyCqWgJbSNQRiDJNsloyCaV2IY47WYarp+60XW0uXrSKYVIU5woGxMLvktA4aNYD0RGfvn0oWBeyfdz12S4eDAraytAyp0QEZGVtVRTREBvHcynBMDbgexUkr5HqbdgyTawb9ZhBv1RzNgN6U3pC/xrTQqFVFRF21VmlArdPPAtRXbe+UAkbe2khbuFpYVAhHMAyLCimJNLaJbiN7DcvJszHCNTbF7GHeLMtoLGF5PDQrRcS2rdzMiGKwzHmrh7e1uKabpF+k0zXdSg5ZApJMQmRbeV56qAez9iszugASTEL4Yg1t+HFMgCGabTO9hhS2FtTazRt4m6JDAZtqZ36YIjKwNBVuk+3Wsppbyb/5lVtWqDhBoLOOrWlIX3WWamyvIFAUsFfe1FDUs8vLQcauYjhcBtw4WBvDQOtIHV2YxP9HAF/7T5owsIzR8eS2JW70aEbz1KFhb82VZphutEIqkMxTyVg1XIm+kSCarFVVD8VrqDxHKwKN/DdEqiEfrTwvvCQCnOshFhHL5mgySYKGtSBepDQbx+QiSfZnlmvkSsOiPJhIjPSRELX0sqZnNQEVrfwvycLS0muazJvXh73hdk0/amVIeTzPxibXMNEmn9SheTwgpPLOU2IuNhA1w0WrCI19MTmkO7dikpSNm7t1cGiTySbP1pPWyqSIOJcdMabG3DhaxbvaVQgUAj2NwJBTwHGhM/aUOgNrtF0z0LfpvAy4reP74IfX1hKbbBvFMK7xva3EwRfX02JRlR8iBFrleWyRG7vQtjQN72lN2TpLyTkW4sjUZew822hlkyC9r2GWbWU1PHI8yIS6tXbh1szbKFoybGW3TV9LAGJbJ239c+zRY2xGOJiu2ow54YXNIwOOBuO62NauDF+NHXTAVzBE0lXZFgKFQCHQEQKTjQJ2VMuxiWBHj3eUeDjL6qhilbgQGGoERpnwD4YFDjWklX8hUAgUAiMWgd6ggOOHb5TprRErK1Wx4UGgzc7dZmQqWtPRW2j1GHT0YCUuBPoHgRpV+uddt7W0g+UgnrRfg8Vu9uFLZJ4rEZ3W376Fsho+6hGI79JefWLaLLlNFF0dhUAhUAj0KAKCVi0HsY0Utd4a8m6X0B5tUVW7IwQ6oICUn5Vu2ZBWGc1OV62LMDoquxIXAr2FgCHSWofseGIr5tbN3nqrIVXbQqAQKAQgQH3bCB0FNKC1+tOKAvaJeHRAAcmHHV9t+m8XMefZUWIwQeJ9AmU1c9QjEMu3lba4YOs330Z9w6uBhUAhMCoRiGXHdp6+ylMUcFS+4vE3qgMKKCMbyfqyE+WXHZWTdXmB+1Bu+rPJDQUk8/nCRH/iUK0uBAqB0YEAK6Ddy/E/zr3W1etlBRwd73eCreiAAlJ47B/iBnxyoNner6GAEyypEhQCvY5A9rTjN7GhnY/2Vixgr7/Qqn8h0OcIGNB89to25r5X3k4BL7lkiksvnWLJJafYccc+R2kUN38iKWCzhVhRwFEsHNW0NgRi9nvHO95RFLBkoxAoBEYBAqw5BjSftEEBqfU3vfLKev/+92r//vem00wzxXPPjWngwQdPccgho6Cl1YQBEZh4CthqAqkl5SVe/YBAPqFhxLSMjhUw4bB1FAKFQCHQowiYzRrQZv3nP5d79tlNnn/+3S++2N6QooA9+moHV+2Jp4BF+waHcKUaPQjEEWxTGFPnttCZ0dPIakkhUAj0BwJrvPDC6i+8sOGLL87y0kvjbHFRwFEtDBNJAfMdqiBTQfGjWkKqcf8fAhF14bDMgc8991x9+6uEoxAoBHoLgcbVi/85n3DliwJOGKMeTlEUsIdfXlV9mBEYmRQwGzPVN3KGWRiquEKghxCY9+WXcb6N//WvAVy9w9CMueaaYsUVpzjxxClmmmkYSqsiBo/AUFFAZpKxbSStHxQZZBUn4pFB5jycyUZHK4YTsZFZ1gikgOF/gWs8VskB++PIBLlqVQgUAt1CAO2ztsMKj9n+859u5Tnx+ay55hRXXDHxj9eTQ4DAoChgo2Ne//rX84LZRnKCjmDBUnkq35xJ4KArUUWtH+503qgxoamK8OtKPr3grkd8ksG5K7zP+RiJ6/4Uj+/c7wsvvOCWI9dTXHKYZppp2sIWU5x8GjyzwDn5Oxfsn3o6uuLmTolNw4OedfhD8EIryyFEYDAUkCgSyHxHpBGeRgLJFemKYKeiBN6vXQYjexKQf+cy8acTf0aknVu459xWrukjkdXW3CLVSif2ETliJivJmu3c05tk1fS7ZNV89dGf8k/nGkI0K+tCoBAYGgQQvh3//vet//WvQbl6h6YOA+daQ8pwoj2IsiZMAeedd95oAr+hgPYFjMJI/gPqiWgXm0jTNDaUnnbaaZOyUUW+SOMWFeVzW7KSwJ8JsZfMFXsQuhguGI1IvVm4Lh/XZ5hhBjlQZh5xK1qN3pJJNGholkyo5LYPeSV/5ab+zQY32RvJryt2y5QtPRrFPAgkx5ckDZdChooAiwqrW6PLJzH/enx4EBgMBcyWmQ4nZC8Vy1Ji3Ydcud5MS/75z38ifxLku3PO3SK6pMUtTxE/j7gSRkjy//GPfxCh3PLNbukJfOZRze/zzz9PjENDFepZf3rWUxYy+/WUbCPeYY0eV6JyJSOZ/gyRHR5gq5RCoBDoOgKLvPSSRb6r//vfTrqe+cRkyB38yCMT82A9M2QIDCEFpP+sNl944YX//Oc/P/roo1En1BXqZnNd131u+KmnnrrjjjtoNasspV9qqaXC6iT+y1/+YsvyqLrYz6ilxRZbzKcMH3/8cRSQvqRNF1xwQZrs/vvvl2zuuedujB/hdnfdddc73/lOmbcpMxrxsccea0VV6QjZoosuOttss4n0v+WWW3w2O+owTHQSX4GGa6ZqL7LIImABwu23305Vu1KKdhKxHbbHB0MBM2HA0nxKsZlmhP173U8++SRJC6WTZuaZZ15uueWI7o033vjggw+aXxE2Uh3BNvvSC373u98RdXIoEzmgdGussQapJtvXX3+9+ZWcGwRwOGkUvfzyy6vJTTfdRIwxRRdT4sorr6zf6Y8kXHM8btZEMtXEI1LKlmQiiB5vzXnYQK6CCoFCoLsIMAo2HuHu5txBbqIAzzxzig026OCRSjr0CHSZAsbaEU1J1X3yk5983/ved8011xx66KE4UC4usMACe+211zLLLEPb0Vg+RLPvvvv+/ve/x/++853vTDnFlC//5+Woqx//+Mff+ta3pMEL/VJXRx999DzzzCNPqpEWxCBPPfVULGrPPff05+GHH44FBrRXX3mVYtt7n70/8IEPrL766nJoNeY99NBDH/3oR2M4UTEqFjPbfffdV1hhhemmne6ll1/CAg844AAalC5EDSeaAuZBpSiCYv7IRz6y5pprxvSCtoJFE+L+KyI49NI+qSUMhgJiVASS/JDqrbfeuinSW77uuuu++tWveuMEgDUOG/v85z8/55xzuoWoHXzwwb/+9a/NjhCvnXbcafv3b0/25ParX/3qlFNOMfMxbTB5OOmkkxZffHF955lnnvnBD35w2mmnYYdN5IP0a6+99h577DHffPMRbAb7I4444re//a00ZlaK23zzzckzO/RVV111wgknsPx5BNf8+Mc/vsoqq+h3SnH9ggsu0N0m3f49qYjX84VAIdA9BMSm4ILrPv+83xlfC5Sa8FErgieMUQ+n6JqjJ84vSCRWD9WjdTbbbDNqjOkO+6Fs2N7e8pa37LzTzq586Utf2mKLLY488kiGt+OPPx7D88gss8xyx5137Lrrrq4jhbvssosc5BlDILX3rne9i/nws5/9LKsGhidDSpFVI87ct7/t7Z7Cqz73uc8ddvhhxx1/HGsHNXnUUUcho4yRTB2HHHLIgQce+PWvfz31dMiEGlboiiuueMYZZ2y+xeYHHXQQTfz973+fHqUI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f/Ob37BneMpuunvuuafPUd92223S5BOrcfXGaeXIOdthPsO61VZbyeGaa66Rg+uoHmGVJhox3rQYOfzaqo02ffDBB++9916ly1zKxi8WR1hFCvaJTA91M3UBskdQB2RIkToS6FhkkUU+9alPmcyY+eBYJDN3zZHWW2+9fffd16asSy655LrrrnvVVVdla1a8UJecY445EMfVV18d1fOsrHyY8YADDlhqqaVmn332Lbfc0q6Ed955p24SrqkySyyxxP7777/AAgt4cO211/YJHwfJxyyPPvpopSh9++23xzVvvfVWXRKV3H333VVDzmusscZUU06FHepWIYjjoYBDDW/lXwgUAsOGgKHMVNBAYZBpLXTvvfcetjpUQZMRgS47gmNdQNdmnXXWFVdcca+99qJsQunmnHNORDBkjmGPzFFC7tJ8oXFQ4KiiXyktJ9LILU7eeMSYMeST9KGAUcPSIH+HHXYYa4qLHmRZIdYyd+4D2NI3gfBt0Q9lL5yMwjdaiyacDvJ/0EEHOSG9pDFhsolteMc73rHjjjvecMMNhx9+ON6ms6B3Ef6dd96Z0H72s5897rjjMMWNNtrIZuwywd7wxZNOOskt1sGDDz5Y4qYjsPNtscUWHkQfP//5z7M4br311rqbKx/72MfmmmuuL37xi8cff/z3v/99MzHGQhOkFVZYYbHFFjv11FM/97nPXXHFFRttvBHu2KYGRusLqnYVAoVAIVAIQKD7FBAJS/iR30032XTbbbdt3XbcRaqO1eE73/nOT37yk1/+8pdHHHEE7SgNhbfDDjv87Gc/O/fcc11knJAV5YfPLbTQQieffPIFF1xwySWX0HChccyBrImJtWIC+cpXvvLe975XYk60M844Qz4//elPjznmGNQztsn6oklJ/PAgkFAH8kZiyXnbl5fI+XLLLYcFXnjhhSzcPLZf/epXN910U1TPpIi57rzzzuOFYTW87rrr5ptvPkvy9QUe3osuuojHVk858cQT2QJxOCY9tj18brbZZtNHmMw5jlkNL7vsMnEXikATWQTPOeec22+/3YPCJHixN9lkE5SUT9nur9deey2D4sUXX6wTsVnqVk03qdnR8EhLlVIIFAKFwORCoMsUUDPY5N742nHppZde9qvLWDWWX375pnnMDFTXxz/+cUro61//OiVHIbE5i0lfbbXVPvOZzyCIqCED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)_
-- _“ASP.NET Core 8 achieves unmatched throughput due to its optimized threading model, high-performance Kestrel server, and task-based asynchronous handling. ASP.NET Core 8 is ideal for enterprise-grade, cloud-native solutions where scalability, performance, and tight integration with Microsoft’s ecosystem are key.”_
-- [_.NET vs Go - A Detailed Comparison_](https://flexiple.com/compare/dot-net-vs-go)
-- _“For big business applications with lots of data, .NET is good as it can work with many programming languages and Microsoft technologies. But if you need a fast and scalable system with lots of users, Golang is a better option because it can handle multiple tasks at the same time because of its ability to handle concurrency and scalability.”_
-- _Job Boards (for prevalence of postings):_
-- _Jooble UAE:_ [_https://ae.jooble.org/jobs-c%23%2F.net-developer/Dubai_](https://ae.jooble.org/jobs-c%23%2F.net-developer/Dubai) _(for .NET)_
-- _UAE:_ [_https://www.bayt.com/en/uae/jobs/golang-developer-jobs-in-dubai/_](https://www.bayt.com/en/uae/jobs/golang-developer-jobs-in-dubai/) _(for Go)_
-- _JobLeads UAE:_ [_https://www.jobleads.com/ae/jobs/net-developer-jobs_](https://www.jobleads.com/ae/jobs/net-developer-jobs) _(for .NET)_
-- _Himalayas.app:_ [_https://himalayas.app/jobs/countries/united-arab-emirates/golang_](https://himalayas.app/jobs/countries/united-arab-emirates/golang) _(for Go, especially remote roles)_
-- **_Salary Data:_**
-- _Naukrigulf (for .NET Developer salaries):_ [_https://www.naukrigulf.com/salaries/dot-net-developer-salary-in-uae_](https://www.naukrigulf.com/salaries/dot-net-developer-salary-in-uae)
-- _PayScale (for .NET salaries by job title/skill):_ [_https://www.payscale.com/research/AE/Skill=.NET/Salary_](https://www.payscale.com/research/AE/Skill=.NET/Salary)
-- _Jobicy (for Go Developer salaries):_ [_https://jobicy.com/salaries/ae/go-developer_](https://jobicy.com/salaries/ae/go-developer)
-- _Web3.career (for Golang Developer salaries, including Web3 specific roles):_ [_https://web3.career/web3-salaries/golang-developer_](https://web3.career/web3-salaries/golang-developer)
-- **_Industry Trends & Adoption (General UAE Tech Market):_**
-- _Staff Connect (UAE Job Market Trends 2025-2026):_ [_https://www.staffconnect.ae/uae-job-market-trends/_](https://www.staffconnect.ae/uae-job-market-trends/)
-- _The Technology Express (Tech Job Market in UAE Set to Boom in 2025):_ [_https://thetechnologyexpress.com/tech-job-market-in-uae-set-to-boom-in-2025-as-global-firms-expand-operations/_](https://thetechnologyexpress.com/tech-job-market-in-uae-set-to-boom-in-2025-as-global-firms-expand-operations/)
-- _Nucamp (Getting a Job in Tech in United Arab Emirates in 2025):_ [_https://www.nucamp.co/blog/coding-bootcamp-united-arab-emirates-are-getting-a-job-in-tech-in-united-arab-emirates-in-2025-the-complete-guide_](https://www.nucamp.co/blog/coding-bootcamp-united-arab-emirates-are-getting-a-job-in-tech-in-united-arab-emirates-in-2025-the-complete-guide)
-- _Velmie (Top Banking App Development Companies in the UAE for 2025 - mentions tech stacks including Go and .NET):_ [_https://www.velmie.com/top-banking-software-developers-uae_](https://www.velmie.com/top-banking-software-developers-uae)
-- _The 10 Best GoLang Development Firms in Dubai:_ [_https://www.sortlist.com/s/golang-development/dubai-ae_](https://www.sortlist.com/s/golang-development/dubai-ae)
+* **Performance Comparisons**:
+
+  * .NET 9 outperforms Go and Deno in HTTP throughput.
+  * ASP.NET Core 8 offers unmatched performance with Kestrel and async architecture.
+
+* **Platform Comparisons**:
+
+  * .NET excels in big, complex applications.
+  * Go shines in high-concurrency and microservices scenarios.
+
+* **Job Boards**:
+
+  * [.NET - Jooble UAE](https://ae.jooble.org/jobs-c%23%2F.net-developer/Dubai)
+  * [Go - Bayt UAE](https://www.bayt.com/en/uae/jobs/golang-developer-jobs-in-dubai/)
+  * [.NET - JobLeads UAE](https://www.jobleads.com/ae/jobs/net-developer-jobs)
+  * [Go - Himalayas (remote)](https://himalayas.app/jobs/countries/united-arab-emirates/golang)
+
+* **Salary Data**:
+
+  * [Naukrigulf – .NET](https://www.naukrigulf.com/salaries/dot-net-developer-salary-in-uae)
+  * [PayScale – .NET](https://www.payscale.com/research/AE/Skill=.NET/Salary)
+  * [Jobicy – Go](https://jobicy.com/salaries/ae/go-developer)
+  * [Web3.career – Go](https://web3.career/web3-salaries/golang-developer)
+
+* **Market Trends**:
+
+  * [Staff Connect: UAE Job Market 2025-2026](https://www.staffconnect.ae/uae-job-market-trends/)
+  * [Technology Express: UAE Tech Market 2025](https://thetechnologyexpress.com/tech-job-market-in-uae-set-to-boom-in-2025-as-global-firms-expand-operations/)
+  * [Nucamp: UAE Tech Job Guide 2025](https://www.nucamp.co/blog/coding-bootcamp-united-arab-emirates-are-getting-a-job-in-tech-in-united-arab-emirates-in-2025-the-complete-guide)
+  * [Velmie: Top UAE Banking App Developers](https://www.velmie.com/top-banking-software-developers-uae)
+  * [Sortlist: Top GoLang Firms in Dubai](https://www.sortlist.com/s/golang-development/dubai-ae)
