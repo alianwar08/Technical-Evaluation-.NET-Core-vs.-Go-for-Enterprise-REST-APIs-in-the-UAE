@@ -1,8 +1,8 @@
 ## Technical Evaluation: .NET Core vs. Go for Enterprise REST APIs in the UAE
 
-## Summary Comparison
-
+## Summary
 ## For REST APIs in enterprise UAE settings, .NET Core is the optimal choice due to its mature ecosystem, strong developer availability, competitive performance, and suitability for complex business requirements. Go remains a strong contender in cloud-native microservices but presents higher hiring and on boarding challenges locally
+
 
 | Criteria | .NET (C#) | Go (Golang) |
 | --- | --- | --- |
